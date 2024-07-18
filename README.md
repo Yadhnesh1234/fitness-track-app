@@ -3,9 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
 
 # Tech Stack Use 
-Angular 
-Tailwind
-firebase (For Data Storage)
+-  Angular 
+-  Tailwind
+-  firebase (For Data Storage)
 
 # Live Link
 [Live Link](https://fitness-track-app-z4zk.vercel.app/login)
