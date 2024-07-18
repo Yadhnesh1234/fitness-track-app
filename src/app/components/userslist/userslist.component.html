@@ -1,31 +1,43 @@
 <div class="p-24 w-full h-full">
     <h2 class="text-4xl font-bold mb-8">Users</h2>
+    <ng-template #load>
+        <div class="flex justify-center items-center w-full h-full">
+            <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600"></div>
+        </div>
+    </ng-template>
 
-    <ng-container *ngIf="usersList">
+    <ng-container *ngIf="usersList != undefined else load">
         <ng-container *ngIf="usersList.length === 0; else table">
             No data available to show.
         </ng-container>
         <ng-template #table>
             <div class="overflow-auto w-full h-full">
-                <table class="min-w-full divide-y divide-gray-200" datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger">
+                <table class="min-w-full divide-y divide-gray-200" datatable [dtOptions]="dtoptions"
+                    [dtTrigger]="dttrigger">
                     <thead class="bg-blue-500">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Id
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 UserName
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Worktype
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Duration
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Date
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 View Profile
                             </th>
                         </tr>
@@ -42,13 +54,14 @@
                                 {{ user.workouttype }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ user.duration }}
+                                {{ user.duration + " /hr" }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ user.createdAt }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <button (click)="goToProfile(user.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                <button (click)="goToProfile(user.id)"
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                     View
                                 </button>
                             </td>
@@ -58,5 +71,4 @@
             </div>
         </ng-template>
     </ng-container>
-
 </div>

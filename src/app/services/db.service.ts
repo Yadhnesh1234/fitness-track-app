@@ -16,9 +16,10 @@ export class DbService {
     try {
       const currentDate = new Date();
       const docRef = await addDoc(collection(this.db, "users"), {...user,createdAt: currentDate });
-      alert("New User Added")
+      alert("New User Added successfully")
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
+      alert("Unable to add new user add again")
       console.error("Error adding document: ", e);
     }
   }
@@ -61,7 +62,7 @@ export class DbService {
     if (!docUser.exists()) {
       return {
         id: null,
-        name: null,
+        name: "NOT AVAILABLE",
         workouttype: null,
         duration: null,
         progress: {

@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './userslist.component.css'
 })
 export class UserslistComponent implements OnInit {
-  usersList: any = []
+  usersList: any = undefined
   dtoptions: any = []
   dttrigger: any = new Subject<any>()
   constructor(private dbSevice: DbService, private router: Router) {

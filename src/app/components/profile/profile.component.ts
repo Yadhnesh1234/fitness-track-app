@@ -18,10 +18,13 @@ export class ProfileComponent implements OnInit {
     workouttype: null,
     duration: null
   };
+  randomProfileImageUrl: string="";
 
   constructor(private route: ActivatedRoute, private dbService: DbService) {}
 
   ngOnInit(): void {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    this.randomProfileImageUrl = `https://randomuser.me/api/portraits/men/${randomNumber}.jpg`;
     this.route.paramMap.subscribe(params => {
       this.userId = params.get('id');
       if (this.userId) {
