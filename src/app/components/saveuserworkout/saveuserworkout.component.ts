@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DbService } from '../../services/db.service';
+import { User } from '../../../models/users';
 
 @Component({
   selector: 'app-saveuserworkout',
@@ -10,6 +12,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './saveuserworkout.component.css'
 })
 export class SaveuserworkoutComponent {
+
+  constructor(private dbSevice:DbService) {}
+
   username = new FormControl("", [
     Validators.required,
     Validators.minLength(8)
@@ -17,7 +22,7 @@ export class SaveuserworkoutComponent {
   workouttype = new FormControl("", [
     Validators.required
   ])
-  duration = new FormControl("", [
+  duration = new FormControl(0, [
     Validators.required,
     Validators.min(1)
   ])
@@ -26,9 +31,9 @@ export class SaveuserworkoutComponent {
     workouttype: this.workouttype,
     duration:this.duration
   })
-  save() {
+  async save() {
     if (this.workoutForm.valid) {
-      console.log(this.workoutForm.value);
+      await this.dbSevice.createUser(this.workoutForm.value as User)
       this.reset();
     } else {
       console.error('Form is invalid');

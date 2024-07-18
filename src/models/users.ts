@@ -1,0 +1,1 @@
+export type User = { username: string, workouttype: string, duration: number }
