@@ -28,7 +28,7 @@ export class DbService {
       const querySnapshot = await getDocs(collection(this.db, "users"));
       querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
-        result.push({ id: doc.id, ...doc.data() })
+        result.push({ id: doc.id, ...doc.data(),progress:1 })
       })
       return result
     } catch (e) {

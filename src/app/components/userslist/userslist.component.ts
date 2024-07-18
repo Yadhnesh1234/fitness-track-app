@@ -16,20 +16,22 @@ export class UserslistComponent implements OnInit {
      constructor(private dbSevice:DbService){
      }
      ngOnInit(): void {
-      this.loadUsers()
       this.dtoptions={
-        pagingType:"full"
-      }
-     }
-     loadUsers(){
-        for(let i=1;i<100;i++){
-          this.usersList.push({
-            id:1,
-            username:"Raj",
-            workouttype:"cardio",
-            duration:2,
-            progress:"20%"
-          })
+        pagingType:"full_numbers",
+        lengthMenu:[5,10,15,25],
+        pageLength:10,
+        language:{
+          searchPlaceholder:"Enter The User Name"
         }
+      }
+      this.dbSevice.getAllUser().then((data:any)=>{
+        console.log(data)
+        this.usersList=data
+        console.log(this.usersList[0].id)
+        this.dttrigger.next();
+      })
      }
+     ngOnDestroy(): void {
+      this.dttrigger.unsubscribe();
+    }
 }
