@@ -34,9 +34,7 @@ export class DbService {
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);  
 
-      const q = query(collection(this.db, "users"),
-                      where('createdAt', '>=', Timestamp.fromDate(today)),
-                      where('createdAt', '<', Timestamp.fromDate(tomorrow)));
+      const q = query(collection(this.db, "users"));
 
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
