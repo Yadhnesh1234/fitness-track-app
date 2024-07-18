@@ -1,1 +1,24 @@
-<p>userslist works!</p>
+<div class="p-24">
+<table datatable [dtOptions]="dtoptions">
+    <thead class="bg-blue-500">
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>Worktype</th>
+            <th>Duration</th>
+            <th>Progress</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(user of usersList; track user){
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.workouttype}}</td>
+            <td>{{user.duration}}</td>
+            <td>{{user.progress}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+</div>
