@@ -22,7 +22,7 @@ This Project help the Gym Trainer To check the progress of each user.
 # Tech Stack Use 
 -  Angular 
 -  Tailwind
--  firebase (For Data Storage)
+-  firebase (For Data Storage and Authentication)
 
 # Live Link
 [Live Link](https://fitness-track-app-z4zk.vercel.app/login)
