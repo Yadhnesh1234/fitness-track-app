@@ -98,13 +98,13 @@ export class DbService {
         console.log(item)
         switch (item.item_text) {
           case 'Cardio':
-            cardioDuration += workoutData['duration']/3;
+            cardioDuration += workoutData['duration']/workoutData['workouttype'].length;
             break;
           case 'Strength':
-            strengthDuration += workoutData['duration']/3;
+            strengthDuration += workoutData['duration']/workoutData['workouttype'].length;
             break;
           case 'Flexibility':
-            flexibilityDuration += workoutData['duration']/3;
+            flexibilityDuration += workoutData['duration']/workoutData['workouttype'].length;
             break;
           default:
             break;
