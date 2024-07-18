@@ -19,6 +19,7 @@ This Project help the Gym Trainer To check the progress of each user.
        - Strength
   - default Login :  email - abc@gmail.com
                      password - abc@1234
+  - User Can Creates it's own login by sign up
 
 
 # Tech Stack Use 
