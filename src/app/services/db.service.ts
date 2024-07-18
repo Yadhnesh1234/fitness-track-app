@@ -14,6 +14,7 @@ export class DbService {
 
   async createUser(user: User) {
     try {
+      console.log(user)
       const currentDate = new Date();
       const docRef = await addDoc(collection(this.db, "users"), {...user,createdAt: currentDate });
       alert("New User Added successfully")
@@ -49,7 +50,8 @@ export class DbService {
         result.push({ id: doc.id, ...userData, createdAt: formattedDate});
       })
       if(result.length==0)
-         return "empty"
+         return undefined
+      console.log()
       return result;
     } catch (e) {
       console.error("Error retrieving documents: ", e);
@@ -89,24 +91,29 @@ export class DbService {
     let strengthDuration = 0;
     let flexibilityDuration = 0;
     let totalDuration = 0;
-
+     
     querySnapshot.forEach((doc) => {
       const workoutData = doc.data();
+      console.log(workoutData)
       totalDuration += workoutData['duration'];
-      console.log(workoutData['duration'])
-      switch (workoutData['workouttype']) {
-        case 'cardio':
-          cardioDuration += workoutData['duration'];
-          break;
-        case 'strength':
-          strengthDuration += workoutData['duration'];
-          break;
-        case 'flexibility':
-          flexibilityDuration += workoutData['duration'];
-          break;
-        default:
-          break;
+      workoutData['workouttype'].forEach((item:any)=>{
+        console.log(item)
+        switch (item.item_text) {
+          case 'Cardio':
+            cardioDuration += workoutData['duration']/3;
+            break;
+          case 'Strength':
+            strengthDuration += workoutData['duration']/3;
+            break;
+          case 'Flexibility':
+            flexibilityDuration += workoutData['duration']/3;
+            break;
+          default:
+            break;
+        }
       }
+      )
+      
     });
 
     const progress = {

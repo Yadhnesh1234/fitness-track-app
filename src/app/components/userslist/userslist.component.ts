@@ -23,7 +23,26 @@ export class UserslistComponent implements OnInit {
       lengthMenu: [5, 10, 15, 25],
       pageLength: 10,
       language: {
-        searchPlaceholder: "Enter The User Name"
+        searchPlaceholder: "Enter The User Name or By Workout Type"
+      },
+      initComplete: function() {
+        const api = this.api();
+
+        $('<input type="text" placeholder="Search by Username" class="form-control mb-2" />')
+          .appendTo($('.dataTables_filter'))
+          .on('keyup change clear', function (this: HTMLInputElement) {
+            if (api.search() !== this.value) {
+              api.search(this.value).draw();
+            }
+          });
+
+        $('<input type="text" placeholder="Search by Workout Type" class="form-control mb-2" />')
+          .appendTo($('.dataTables_filter'))
+          .on('keyup change clear', function (this: HTMLInputElement) {
+            if (api.column(1).search() !== this.value) {
+              api.column(1).search(this.value).draw();
+            }
+          });
       }
     }
     this.dbSevice.getAllUser().then((data: any) => {
@@ -32,6 +51,7 @@ export class UserslistComponent implements OnInit {
       console.log(this.usersList[0].id)
       this.dttrigger.next();
     })
+
   }
   goToProfile(userId: string): void {
     this.router.navigate(['/profile', userId]);

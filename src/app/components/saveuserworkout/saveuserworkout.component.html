@@ -1,63 +1,62 @@
 <form class="p-20" [formGroup]="workoutForm">
-    <div class="space-y-12">
-      <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-xl font-semibold leading-7 text-gray-900">Profile</h2>
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div class="sm:col-span-4">
-            <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
-            <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                <input type="text" name="username" id="username" [formControl]="username" autocomplete="username" class="block flex-1  bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6" placeholder="username">
+  <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-xl font-semibold leading-7 text-gray-900">Profile</h2>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <input type="text" name="username" id="username" [formControl]="username" autocomplete="username" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6" placeholder="username">
             </div>
             <div *ngIf="username.invalid && (username.dirty || username.touched)">
-                <div *ngIf="username.errors?.['required']" class="text-red-500 mt-5">Username is required.</div>
-                <div *ngIf="username.errors?.['minlength']" class="text-red-500 mt-5">Username must be at least 8 characters long.</div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Workout Details</h2>
-  
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-  
-          <div class="sm:col-span-3">
-            <label for="workouttype" class="block text-sm font-medium leading-6 text-gray-900">Workout Type</label>
-            <div class="mt-2">
-              <select id="workouttype" name="workouttype" [formControl]="workouttype" autocomplete="workouttype-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                <option value="" disabled>Select a workouttype for today</option>
-                <option value="cardio">Cardio</option>
-                <option value="strength">Strength</option>
-                <option value="flexibility">Flexibility</option>
-              </select>
-              <div *ngIf="workouttype.invalid && (workouttype.dirty || workouttype.touched)">
-                <div *ngIf="workouttype.errors?.['required']" class="text-red-500 mt-5">Workout type is required.</div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="sm:col-span-1">
-            <label for="duration" class="block text-sm font-medium leading-6 text-gray-900">Duration In hour >0</label>
-            <div class="mt-2">
-              <input type="number" name="duration" [formControl]="duration" id="duration" class="p-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-            <div *ngIf="duration.invalid && (duration.dirty || duration.touched)">
-                <div *ngIf="duration.errors?.['required']" class="text-red-500 mt-5">Duration is required.</div>
-                <div *ngIf="duration.errors?.['min']" class="text-red-500 mt-5">Duration must be greater than 0.</div>
+              <div *ngIf="username.errors?.['required']" class="text-red-500 mt-5">Username is required.</div>
+              <div *ngIf="username.errors?.['minlength']" class="text-red-500 mt-5">Username must be at least 8 characters long.</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  
-    <div class="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" (click)="reset()" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-    @if(!workoutForm.invalid){
-        <button type="submit" (click)="save()" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
-    }@else{
-        <button type="submit"  class="cursor-not-allowed rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">Save</button>
-    }
+
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-gray-900">Workout Details</h2>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <label for="workouttype" class="block text-sm font-medium leading-6 text-gray-900">Workout Type</label>
+          <div class="mt-2">
+            <ng-multiselect-dropdown 
+              [placeholder]="'Select workout types'"
+              [settings]="dropdownSettings"
+              [data]="dropdownList" 
+              [(ngModel)]="selectedItems" 
+              formControlName="workouttype">
+            </ng-multiselect-dropdown>
+            <div *ngIf="workouttype.invalid && (workouttype.dirty || workouttype.touched)">
+              <div *ngIf="workouttype.errors?.['required']" class="text-red-500 mt-5">Workout type is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-1">
+          <label for="duration" class="block text-sm font-medium leading-6 text-gray-900">Duration In hour >0</label>
+          <div class="mt-2">
+            <input type="number" name="duration" [formControl]="duration" id="duration" class="p-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+          <div *ngIf="duration.invalid && (duration.dirty || duration.touched)">
+              <div *ngIf="duration.errors?.['required']" class="text-red-500 mt-5">Duration is required.</div>
+              <div *ngIf="duration.errors?.['min']" class="text-red-500 mt-5">Duration must be greater than 0.</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </form>
+  </div>
+
+  <div class="mt-6 flex items-center justify-end gap-x-6">
+    <button type="button" (click)="reset()" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+@if(!workoutForm.invalid){
+    <button type="submit" (click)="save()" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+}@else{
+    <button type="submit"  class="cursor-not-allowed rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">Save</button>
+}
+</div>
+</form>
