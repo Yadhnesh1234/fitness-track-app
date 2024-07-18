@@ -29,7 +29,7 @@ export class AuthService {
         const user = userCredential.user;
         console.log(user)
         alert("Sign Up Successfully :)")
-        this.router.navigate(['/login'])
+        this.router.navigate(['/saveworkout'])
       })
       .catch((error) => {
         const errorMessage = error.message;
