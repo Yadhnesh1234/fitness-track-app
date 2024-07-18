@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This Project help the Gym Trainer To check the progress of each user. 
 - At first gym trainer needs to create there account for that sign up option is given
 - If they have already login account then they can login
-- To see the users in list (Table) record one should have to add the users i.e (Username, WorkTypes, Duration).
-- You can see the users List in the userslist section
-- You can also check the progress of the user 
+- You can add the Users.
+- You can see the users List in the userslist section. UserList is data table that allow filtering , Sorting and Pagignation.
+- You can also check the progress of the user in profile of user.
 
 # Assumption
 - one user can perform the multiple workouts  but the time duration should enter as combined hours of all the tree activities
