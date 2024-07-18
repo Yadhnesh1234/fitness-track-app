@@ -17,6 +17,8 @@ This Project help the Gym Trainer To check the progress of each user.
        - Cardio
        - Flexibility
        - Strength
+  - default Login :  email - abc@gmail.com
+                     password - abc@1234
 
 
 # Tech Stack Use 
