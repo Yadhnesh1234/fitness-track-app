@@ -47,6 +47,8 @@ export class DbService {
 
         result.push({ id: doc.id, ...userData, createdAt: formattedDate});
       })
+      if(result.length==0)
+         return "empty"
       return result;
     } catch (e) {
       console.error("Error retrieving documents: ", e);

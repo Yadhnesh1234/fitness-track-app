@@ -3,10 +3,11 @@ import { DbService } from '../../services/db.service';
 import { DataTablesModule } from 'angular-datatables'
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-userslist',
   standalone: true,
-  imports: [DataTablesModule],
+  imports: [DataTablesModule,CommonModule],
   templateUrl: './userslist.component.html',
   styleUrl: './userslist.component.css'
 })
