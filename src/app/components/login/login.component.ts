@@ -30,6 +30,9 @@ export class LoginComponent {
     const password= this.loginForm.value.password as string
     this.authService.loginUser(email,password)
   }
+  goToSignup(){
+    this.router.navigate(['/signup'])
+  }
   reset(){
      this.loginForm.reset()
   }
